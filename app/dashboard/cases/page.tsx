@@ -1,3 +1,5 @@
+import CaseList from "@/components/CaseList";
+
 async function getCases() {
   const res = await fetch("https://sahakshak-backend.vercel.app/api/cases", {
     credentials: "same-origin",
@@ -15,7 +17,7 @@ export default async function page() {
     <div>
       <h1 className="text-3xl font-semibold ">Cases</h1>
       {/* <CaseTable cases={cases} /> */}
-      {/* <CaseList cases={cases} /> */}
+      <CaseList cases={cases} />
     </div>
   );
 }
