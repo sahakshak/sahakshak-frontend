@@ -1,3 +1,4 @@
+import SideNav from "@/components/SideBar";
 import { UserButton } from "@clerk/nextjs";
 import { Input } from "@nextui-org/react";
 import React from "react";
@@ -10,6 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <h1 className="text-2xl font-bold text-black  text-left  pt-4 ">
             Sahakshak
           </h1>
+          <SideNav />
         </div>
       </div>
       <div className="flex-1 w-full h-full ">
