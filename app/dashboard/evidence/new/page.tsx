@@ -28,15 +28,12 @@ export default function Page() {
 
     try {
       setIsLoading(true);
-      const data = await fetch(
-        "https://sahakshak-backend.vercel.app/api/evidence",
-        {
-          method: "POST",
-          body: formData,
+      const data = await fetch(process.env.API_URL + "/evidence", {
+        method: "POST",
+        body: formData,
 
-          credentials: "same-origin",
-        }
-      );
+        credentials: "same-origin",
+      });
       const response = await data.json();
       (e.target as HTMLFormElement).reset();
     } catch (error) {

@@ -35,7 +35,7 @@ const AgeChart = ({ cases }: { cases: Case[] }) => {
   };
 
   return (
-    <Card className="bg-primary_light">
+    <Card className="bg-primary_light col-span-2">
       <Title>Number of Crimes by Age Group</Title>
       <Subtitle>
         Bar chart displaying the number of crimes committed by individuals in

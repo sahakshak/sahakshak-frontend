@@ -24,7 +24,7 @@ const CriminalStatusChart = ({ criminals = [] }) => {
     <Card className="max-w-lg bg-primary_light">
       <Title>Criminal Status</Title>
       <DonutChart
-        className="my-6 mt-12 scale-125 "
+        className="my-12 mt-16 scale-150 "
         data={suspectsData}
         category="count"
         index="name"
@@ -33,7 +33,7 @@ const CriminalStatusChart = ({ criminals = [] }) => {
         colors={["red", "green", "blue"]} // You can customize colors as needed
       />
       <Legend
-        className="mt-3"
+        className="mt-20 text-xl"
         categories={["Wanted", "Arrested", "Released"]}
         colors={["red", "green", "blue"]}
       />

@@ -1,7 +1,7 @@
 import EvidenceTable from "@/components/EvidenceTable";
 import console from "console";
 async function getCases() {
-  const res = await fetch("https://sahakshak-backend.vercel.app/api/evidence", {
+  const res = await fetch(process.env.API_URL + "/evidence", {
     credentials: "same-origin",
     cache: "no-store",
   });

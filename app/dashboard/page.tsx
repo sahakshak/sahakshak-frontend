@@ -3,7 +3,7 @@ import GenderChart from "@/components/GenderChart";
 import WeekChart from "@/components/WeekChart";
 
 async function getCases() {
-  const res = await fetch("https://sahakshak-backend.vercel.app/api/cases", {
+  const res = await fetch(process.env.API_URL + "/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });
@@ -11,13 +11,10 @@ async function getCases() {
   return data;
 }
 async function getCriminals() {
-  const res = await fetch(
-    "https://sahakshak-backend.vercel.app/api/criminals",
-    {
-      credentials: "same-origin",
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(process.env.API_URL + "/criminals", {
+    credentials: "same-origin",
+    cache: "no-store",
+  });
   const data = await res.json();
   return data;
 }

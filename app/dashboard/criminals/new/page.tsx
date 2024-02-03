@@ -25,14 +25,11 @@ export default function Page() {
     try {
       setIsLoading(true);
 
-      const data = await fetch(
-        "https://sahakshak-backend.vercel.app/api/criminals",
-        {
-          method: "POST",
-          body: formData,
-          credentials: "same-origin",
-        }
-      );
+      const data = await fetch(process.env.API_URL + "/criminals", {
+        method: "POST",
+        body: formData,
+        credentials: "same-origin",
+      });
 
       const response = await data.json();
       console.log("Response:", response);

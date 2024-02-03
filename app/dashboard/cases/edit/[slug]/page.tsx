@@ -26,7 +26,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const [imageFile, setImageFile] = useState<File | null>(null);
   useLayoutEffect(() => {
     setIsLoading(true);
-    fetch("https://sahakshak-backend.vercel.app/api/cases/" + params.slug, {
+    fetch(process.env.API_URL + "/cases/" + params.slug, {
       credentials: "same-origin",
     })
       .then((response) => response.json())

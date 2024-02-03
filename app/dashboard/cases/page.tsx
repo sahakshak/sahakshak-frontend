@@ -1,7 +1,7 @@
 import CaseList from "@/components/CaseList";
 
 async function getCases() {
-  const res = await fetch("https://sahakshak-backend.vercel.app/api/cases", {
+  const res = await fetch(process.env.API_URL + "/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });

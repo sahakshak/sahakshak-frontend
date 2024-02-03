@@ -4,9 +4,7 @@ import { Badge } from "@tremor/react";
 import { Image } from "@nextui-org/react";
 
 const fetchCase = async (slug: string) => {
-  const res = await fetch(
-    `https://sahakshak-backend.vercel.app/api/cases/${slug}`
-  );
+  const res = await fetch(process.env.API_URL + `/cases/${slug}`);
   const data = await res.json();
   return data;
 };

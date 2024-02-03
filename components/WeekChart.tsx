@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, LineChart } from "@tremor/react";
+import { AreaChart, Card, LineChart } from "@tremor/react";
 import { Case } from "@/lib/types/case";
 
 const WeekChart = ({ cases }: { cases: Case[] }) => {
@@ -44,7 +44,7 @@ const WeekChart = ({ cases }: { cases: Case[] }) => {
     <Card className="bg-primary_light">
       <h2>Crime Data for the Last 7 Days</h2>{" "}
       {/* Use appropriate heading level */}
-      <LineChart
+      <AreaChart
         className="mt-6"
         data={formattedCrimeData}
         index="date" // Use the updated label
