@@ -1,5 +1,5 @@
-import SideNav from "@/components/SideBar";
 import { UserButton } from "@clerk/nextjs";
+import SideNav from "@/components/Sidenav";
 import { Input } from "@nextui-org/react";
 import React from "react";
 
