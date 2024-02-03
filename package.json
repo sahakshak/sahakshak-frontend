@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.5",
+    "@headlessui/react": "^1.7.18",
+    "@headlessui/tailwindcss": "^0.2.0",
     "@nextui-org/react": "^2.2.9",
+    "@tremor/react": "^3.13.4",
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
