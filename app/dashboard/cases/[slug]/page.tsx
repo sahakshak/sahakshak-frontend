@@ -4,7 +4,7 @@ import { Badge } from "@tremor/react";
 import { Image } from "@nextui-org/react";
 
 const fetchCase = async (slug: string) => {
-  const res = await fetch(process.env.API_URL + `/cases/${slug}`);
+  const res = await fetch(`http://172.105.54.189/api/cases/${slug}`);
   const data = await res.json();
   return data;
 };

@@ -26,7 +26,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const [imageFile, setImageFile] = useState<File | null>(null);
   useLayoutEffect(() => {
     setIsLoading(true);
-    fetch(process.env.API_URL + "/cases/" + params.slug, {
+    fetch("http://172.105.54.189/api/cases/" + params.slug, {
       credentials: "same-origin",
     })
       .then((response) => response.json())

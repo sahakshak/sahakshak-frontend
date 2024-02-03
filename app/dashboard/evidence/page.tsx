@@ -1,7 +1,7 @@
 import EvidenceTable from "@/components/EvidenceTable";
 import console from "console";
 async function getCases() {
-  const res = await fetch(process.env.API_URL + "/evidence", {
+  const res = await fetch("http://172.105.54.189/api/evidence", {
     credentials: "same-origin",
     cache: "no-store",
   });

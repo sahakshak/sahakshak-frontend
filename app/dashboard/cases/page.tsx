@@ -1,7 +1,7 @@
 import CaseList from "@/components/CaseList";
 
 async function getCases() {
-  const res = await fetch(process.env.API_URL + "/cases", {
+  const res = await fetch("http://172.105.54.189/api/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });

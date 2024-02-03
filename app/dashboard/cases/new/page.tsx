@@ -21,7 +21,7 @@ export default function Page() {
     try {
       setIsLoading(true);
 
-      const data = await fetch(process.env.API_URL + "/cases", {
+      const data = await fetch("http://172.105.54.189/api/cases", {
         method: "POST",
         body: formData,
         credentials: "same-origin",

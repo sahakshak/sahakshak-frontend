@@ -3,7 +3,7 @@ import GenderChart from "@/components/GenderChart";
 import WeekChart from "@/components/WeekChart";
 
 async function getCases() {
-  const res = await fetch(process.env.API_URL + "/cases", {
+  const res = await fetch("http://172.105.54.189/api/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });
@@ -11,7 +11,7 @@ async function getCases() {
   return data;
 }
 async function getCriminals() {
-  const res = await fetch(process.env.API_URL + "/criminals", {
+  const res = await fetch("http://172.105.54.189/api/criminals", {
     credentials: "same-origin",
     cache: "no-store",
   });
