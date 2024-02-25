@@ -10,6 +10,7 @@ import { FaFileAlt } from "react-icons/fa";
 import { IoMdAnalytics } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
 import { MdHelpCenter } from "react-icons/md";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 const SIDENAV_ITEMS = [
   {
@@ -43,6 +44,11 @@ const SIDENAV_ITEMS = [
     path: "/dashboard/analytics",
     icon: <IoMdAnalytics size={20} />,
   },
+  {
+    title: "Map Activity",
+    path: "/dashboard/map",
+    icon: <FaMapMarkedAlt size={20} />,
+  },
 ];
 
 const SideNav = () => {
@@ -74,7 +80,7 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
               pathname.includes(item.path) ? "text-blue-500" : ""
             }`}
           >
-            <div className="flex flex-row space-x-4 items-center">
+            <div className="flex flex-row space-x-2 items-center">
               {item.icon || ""}
               <span className="font-semibold   flex">{item.title}</span>
             </div>
@@ -87,7 +93,7 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
           </button>
 
           {subMenuOpen && (
-            <div className="my-2 ml-6 flex flex-col space-y-4">
+            <div className="my-2 ml-5 flex flex-col space-y-4">
               {item.subMenuItems?.map((subItem, idx) => {
                 return (
                   <Link
@@ -108,7 +114,7 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
       ) : (
         <Link
           href={item.path}
-          className={`flex flex-row space-x-4 items-center p-2 rounded-lg hover:bg-zinc-100 ${
+          className={`flex flex-row space-x-2 items-center p-2 rounded-lg hover:bg-zinc-100 ${
             item.path === pathname ? "text-blue-500" : ""
           }`}
         >

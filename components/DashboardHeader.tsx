@@ -18,7 +18,7 @@ export default function DashboardHeader({
   ).length;
   const openedCases = totalCases - pendingCases - closedCases;
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-4 max-lg:grid-cols-2  gap-4">
       <Card
         className="max-w-xs mx-auto bg-primary_light flex justify-between items-center"
         decoration="top"

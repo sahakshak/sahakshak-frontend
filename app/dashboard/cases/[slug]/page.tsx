@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Chip, Divider, Spacer } from "@nextui-org/react";
-import { Badge } from "@tremor/react";
+import { Card, Chip, Divider, Link, Spacer } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
+import { IoIosAddCircle } from "react-icons/io";
 
 const fetchCase = async (slug: string) => {
   const res = await fetch(`http://172.105.54.189/api/cases/${slug}`);
@@ -9,10 +9,23 @@ const fetchCase = async (slug: string) => {
   return data;
 };
 
+const fetchEvidence = async (slug: string) => {
+  const res = await fetch(`http://172.105.54.189/api/evidence/case/${slug}`);
+  const data = await res.json();
+  return data;
+};
+
+const fetchCriminal = async (slug: string) => {
+  const res = await fetch(`http://172.105.54.189/api/criminals/case/${slug}`);
+  const data = await res.json();
+  return data;
+};
+
 export default async function page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const caseData = await fetchCase(slug);
-  console.log(caseData);
+  const evidenceData = await fetchEvidence(slug);
+  const criminalData = await fetchCriminal(slug);
 
   return (
     <div className=" ">
@@ -78,6 +91,102 @@ export default async function page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </Card>
+      <div className="flex gap-3 items-center mt-10 mb-4">
+        {" "}
+        <h2 className="text-3xl font-bold ">Evidence Details</h2>
+        <Link href={`/dashboard/evidence/new`}>
+          <IoIosAddCircle size={30} className="text-green-600" />
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {evidenceData.map((evidence: any) => (
+          <Card
+            key={evidence._id}
+            className="p-6 grid grid-cols-2 items-center"
+          >
+            <div>
+              {
+                <Image
+                  alt={`Evidence Image ${evidence._id}`}
+                  src={
+                    evidence.imageURL ||
+                    "https://img.freepik.com/free-vector/police-arresting-criminal-concept-illustration_114360-13673.jpg?w=740&t=st=1706870279~exp=1706870879~hmac=9cd477943a7b573c7ffd8bce6afbe31859723aae72766c83abbd9d2f41900243"
+                  }
+                  className="max-w-full h-auto mb-4"
+                />
+              }
+            </div>
+            <div className="ml-4">
+              <h3 className="text-xl font-bold mb-2">{evidence.type}</h3>
+              <p className="font-semibold">Description:</p>
+              <p className="font-medium text-gray-600 mb-2">
+                {evidence.description}
+              </p>
+              <p className="font-semibold">Location Found:</p>
+              <p className="font-medium text-gray-600">
+                {evidence.locationFound}
+              </p>
+              <p className="font-semibold">Found By:</p>
+              <p className="font-medium text-gray-600">{evidence.foundBy}</p>
+              <p className="font-semibold">Found On:</p>
+              <p className="font-medium text-gray-600">
+                {new Date(evidence.foundOn).toLocaleString()}
+              </p>
+              <p className="font-semibold">Collected By:</p>
+              <p className="font-medium text-gray-600">
+                {evidence.collectedBy}
+              </p>
+              <p className="font-semibold">Collected On:</p>
+              <p className="font-medium text-gray-600">
+                {new Date(evidence.collectedOn).toLocaleString()}
+              </p>
+              {/* Add more details as needed */}
+            </div>
+          </Card>
+        ))}
+      </div>
+      <div className="flex gap-3 items-center mt-10 mb-4">
+        {" "}
+        <h2 className="text-3xl font-bold ">Criminal Details</h2>
+        <Link href={`/dashboard/criminals/new`}>
+          <IoIosAddCircle size={30} className="text-green-600" />
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {criminalData.map((criminal: any) => (
+          <Card
+            key={criminal._id}
+            className="p-6 grid grid-cols-2 items-center"
+          >
+            <div>
+              {
+                <Image
+                  alt={`Criminal Image ${criminal._id}`}
+                  src={
+                    criminal.imageURL ||
+                    "https://img.freepik.com/free-vector/police-arresting-criminal-concept-illustration_114360-13673.jpg?w=740&t=st=1706870279~exp=1706870879~hmac=9cd477943a7b573c7ffd8bce6afbe31859723aae72766c83abbd9d2f41900243"
+                  }
+                  className="max-w-full h-auto mb-4"
+                />
+              }
+            </div>
+            <div className="ml-4">
+              <h3 className="text-xl font-bold mb-2">{criminal.name}</h3>
+              <p className="font-semibold">Gender:</p>
+              <p className="font-medium text-gray-600">{criminal.gender}</p>
+              <p className="font-semibold">Age:</p>
+              <p className="font-medium text-gray-600">{criminal.age}</p>
+              <p className="font-semibold">Address:</p>
+              <p className="font-medium text-gray-600">{criminal.address}</p>
+              <p className="font-semibold">Crime:</p>
+              <p className="font-medium text-gray-600">{criminal.crime}</p>
+              <p className="font-semibold">Status:</p>
+              <p className="font-medium text-gray-600">{criminal.status}</p>
+              {/* Add more details as needed */}
+            </div>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }

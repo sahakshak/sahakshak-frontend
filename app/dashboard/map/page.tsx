@@ -62,6 +62,7 @@ export default function Page() {
 
   return (
     <div className="h-[80vh]">
+      {/* <h1 className="text-3xl font-semibold py-5   ">Map</h1> */}
       <Map defaultCenter={[22.9868, 87.855]} defaultZoom={11}>
         {locationDetails.length &&
           locationDetails.map((location, index) =>
