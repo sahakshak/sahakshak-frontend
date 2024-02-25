@@ -1,7 +1,8 @@
 import CaseList from "@/components/CaseList";
+import { KEY } from "@/constant/const";
 
 async function getCases() {
-  const res = await fetch("http://172.105.54.189/api/cases", {
+  const res = await fetch(KEY + "/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });

@@ -20,13 +20,15 @@ const statuses = [
   { value: "Closed", label: "Closed" },
   { value: "Pending", label: "Pending" },
 ];
+import { KEY } from "@/constant/const";
+
 export default function Page({ params }: { params: { slug: string } }) {
   const [isLoading, setIsLoading] = useState(true);
   const [caseData, setCaseData] = useState<Case>({} as Case);
   const [imageFile, setImageFile] = useState<File | null>(null);
   useLayoutEffect(() => {
     setIsLoading(true);
-    fetch("http://172.105.54.189/api/cases/" + params.slug, {
+    fetch(KEY + "/cases/" + params.slug, {
       credentials: "same-origin",
     })
       .then((response) => response.json())

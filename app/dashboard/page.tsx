@@ -2,9 +2,9 @@ import CaseTable from "@/components/CaseTable";
 import DashboardHeader from "@/components/DashboardHeader";
 import GenderChart from "@/components/GenderChart";
 import WeekChart from "@/components/WeekChart";
-
+import { KEY } from "@/constant/const";
 async function getCases() {
-  const res = await fetch("http://172.105.54.189/api/cases", {
+  const res = await fetch(KEY + "/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });
@@ -12,7 +12,7 @@ async function getCases() {
   return data;
 }
 async function getCriminals() {
-  const res = await fetch("http://172.105.54.189/api/criminals", {
+  const res = await fetch(KEY + "/criminals", {
     credentials: "same-origin",
     cache: "no-store",
   });
@@ -28,7 +28,7 @@ export default async function Page() {
   ).length;
 
   return (
-    <div>
+    <div className="w-full h-full mt-5">
       <DashboardHeader cases={cases} totalArrests={totalArrests} />
       <div className="mt-5 grid grid-cols-3 max-md:grid-cols-1  gap-4">
         <div className=" col-span-2 max-md:col-span-1">

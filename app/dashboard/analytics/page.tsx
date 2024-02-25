@@ -1,9 +1,10 @@
 import AgeChart from "@/components/AgeChart";
 import CriminalStatusChart from "@/components/CriminalStatusChart";
 import WeekChart from "@/components/WeekChart";
-import { cache } from "react";
+import { KEY } from "@/constant/const";
+
 async function getCases() {
-  const res = await fetch("http://172.105.54.189/api/cases", {
+  const res = await fetch(KEY + "/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });
@@ -11,7 +12,7 @@ async function getCases() {
   return data;
 }
 async function getCriminals() {
-  const res = await fetch("http://172.105.54.189/api/criminals", {
+  const res = await fetch(KEY + "/criminals", {
     credentials: "same-origin",
     cache: "no-store",
   });

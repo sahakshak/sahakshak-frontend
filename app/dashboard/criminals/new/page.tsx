@@ -15,6 +15,8 @@ const genders = [
   { value: "Female", label: "Female" },
   { value: "Other", label: "Other" },
 ];
+import { KEY } from "@/constant/const";
+
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   // ! Handle Criminal
@@ -25,7 +27,7 @@ export default function Page() {
     try {
       setIsLoading(true);
 
-      const data = await fetch("http://172.105.54.189/api/criminals", {
+      const data = await fetch(KEY + "/criminals", {
         method: "POST",
         body: formData,
         credentials: "same-origin",

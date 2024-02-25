@@ -1,4 +1,5 @@
 "use client";
+import { KEY } from "@/constant/const";
 import { Case } from "@/lib/types/case";
 import { Map, Marker, Overlay } from "pigeon-maps";
 import { useEffect, useState } from "react";
@@ -10,7 +11,7 @@ interface LocationDetails {
 }
 
 async function getCases() {
-  const res = await fetch("http://172.105.54.189/api/cases", {
+  const res = await fetch(KEY + "/cases", {
     credentials: "same-origin",
     cache: "no-store",
   });

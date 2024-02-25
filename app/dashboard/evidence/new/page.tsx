@@ -13,6 +13,7 @@ const evidenceTypes = [
   { value: "Type2", label: "Type 2" },
   { value: "Type3", label: "Type 3" },
 ];
+import { KEY } from "@/constant/const";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +29,7 @@ export default function Page() {
 
     try {
       setIsLoading(true);
-      const data = await fetch("http://172.105.54.189/api/evidence", {
+      const data = await fetch(KEY + "/evidence", {
         method: "POST",
         body: formData,
 

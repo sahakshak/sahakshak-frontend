@@ -12,6 +12,8 @@ const genders = [
   { value: "female", label: "Female" },
   { value: "others", label: "Others" },
 ];
+import { KEY } from "@/constant/const";
+
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,7 +23,7 @@ export default function Page() {
     try {
       setIsLoading(true);
 
-      const data = await fetch("http://172.105.54.189/api/cases", {
+      const data = await fetch(KEY + "/cases", {
         method: "POST",
         body: formData,
         credentials: "same-origin",
